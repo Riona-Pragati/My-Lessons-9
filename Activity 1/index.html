@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Error Handling in JS</h2>
+    <p>In this webpage, the sentence is corrected using JavaScript</p>
+    <p id="search_result"></p>
+    <p id="replace_result"></p>
+
+    <script>
+        var str = "My hobbies coding, crocheting and learning math.";
+        var search_position = str.search("doing");
+        var txt =str.replace("My hobbies" , "My hobbies are");
+
+        document.getElementById("search_result").innerHTML = search_position;
+        document.getElementById("replace_result").innerHTML = txt;
+    </script>
+</body>
+</html>

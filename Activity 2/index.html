@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Asynchronuos Functions in JS</h3>
+    <p id="result"></p>
+    <script>
+        async function add(x,y) {
+            let response = await x + y;
+            display(response);
+        }
+        function display(some) {
+            document.getElementById("result").innerHTML = some;
+        }
+        add(125,220);
+    </script>
+</body>
+</html>
