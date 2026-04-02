@@ -1,0 +1,58 @@
+Last login: Wed Apr  1 19:18:59 on ttys000
+anantha-6459@anantha-6459 ~ % sqlite3
+SQLite version 3.51.0 2025-06-12 13:14:41
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .open Student1_Records.db
+sqlite> CREATE TABLE Student1_Records(Name TEXT,ID INTEGER,Height INTEGER,Weight INTEGER);
+sqlite> INSERT INTO Student1_Records VALUES('Riona',646,160,50)
+   ...> INSERT INTO Student1_Records VALUES('Riona',646,160,50);
+Parse error: near "INSERT": syntax error
+   INTO Student1_Records VALUES('Riona',646,160,50) INSERT INTO Student1_Records
+                                      error here ---^
+sqlite> INSERT INTO Student1_Records VALUES('Riona',646,160,50);
+sqlite> INSERT INTO Student1_Records VALUES('Rini',648,147,40);
+sqlite> INSERT INTO Student1_Records VALUES('Pragathi',662,152,45);
+sqlite> INSERT INTO Student1_Records VALUES('Prisha',660,148,39);
+sqlite> INSERT INTO Student1_Records VALUES('Lakshita',664,157,57);
+sqlite> SELECT * FROM Student1_Records;
+Riona|646|160|50
+Rini|648|147|40
+Pragathi|662|152|45
+Prisha|660|148|39
+Lakshita|664|157|57
+sqlite> CREATE TABLE Student1_Records(Name TEXT,Age INTEGER);
+Parse error: table Student1_Records already exists
+  CREATE TABLE Student1_Records(Name TEXT,Age INTEGER);
+               ^--- error here
+sqlite> CREATE TABLE Age(Name TEXT,Age INTEGER);
+sqlite> INSERT INTO Age VALUES('Riona',13)
+   ...> INSERT INTO Age VALUES('Riona',13);
+Parse error: near "INSERT": syntax error
+  INSERT INTO Age VALUES('Riona',13) INSERT INTO Age VALUES('Riona',13);
+                       error here ---^
+sqlite> INSERT INTO Age VALUES('Riona',13)
+   ...> INSERT INTO Age VALUES('Riona',13);
+Parse error: near "INSERT": syntax error
+  INSERT INTO Age VALUES('Riona',13) INSERT INTO Age VALUES('Riona',13);
+                       error here ---^
+sqlite> INSERT INTO Age VALUES('Riona',13);
+sqlite> INSERT INTO Age VALUES('Rini',10);
+sqlite> INSERT INTO Age VALUES('Pragathi',14);
+sqlite> INSERT INTO Age VALUES('Prisha',11);
+sqlite> INSERT INTO Age VALUES('Lakshita',15);
+sqlite> SELECT * FROM Age;
+Riona|13
+Rini|10
+Pragathi|14
+Prisha|11
+Lakshita|15
+sqlite> SELECT Student1_Records.Name,Age.Name FROM Student1_Records INNER JOIN Age ON Student1_Records.Name=Age.Name;
+Riona|Riona
+Rini|Rini
+Pragathi|Pragathi
+Prisha|Prisha
+Lakshita|Lakshita
+sqlite> SELECT Student1_Records.Name,Age.Name FROM Student1_Records INNER JOIN Age ON Student1_Records.Name=Age.Age;
+sqlite> 
