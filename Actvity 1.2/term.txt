@@ -1,0 +1,37 @@
+Last login: Wed Apr  1 19:36:34 on ttys000
+anantha-6459@anantha-6459 ~ % sqlite3
+SQLite version 3.51.0 2025-06-12 13:14:41
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .open Product_Records.db
+sqlite> CREATE TABLE Product(Id INETEGER, Name TEXT, Price INTEGER);
+sqlite> INSERT INTO Product(646, 'Riona', 6400)
+   ...> INSERT INTO Product(646, 'Riona', 6400);
+Parse error: near "646": syntax error
+  INSERT INTO Product(646, 'Riona', 6400) INSERT INTO Product(646, 'Riona', 6400
+                      ^--- error here
+sqlite> INSERT INTO Product(646, 'Riona', 6400);
+Parse error: near "646": syntax error
+  INSERT INTO Product(646, 'Riona', 6400);
+                      ^--- error here
+sqlite> INSERT INTO Product VALUES(646, 'Riona', 6400);
+sqlite> INSERT INTO Product VALUES(648, 'Rini', 6500);
+sqlite> INSERT INTO Product VALUES(660, 'Prisha', 6250);
+sqlite> INSERT INTO Product VALUES(662, 'Pragathi', 6750);
+sqlite> INSERT INTO Product VALUES(664, 'Lakshita', 6450);
+sqlite> SELECT * FROM Product;
+646|Riona|6400
+648|Rini|6500
+660|Prisha|6250
+662|Pragathi|6750
+664|Lakshita|6450
+sqlite> SELECT MIN(Price) FROM Product;
+6250
+sqlite> SELECT MAX(Price) FRO Product;
+Parse error: near "Product": syntax error
+  SELECT MAX(Price) FRO Product;
+                        ^--- error here
+sqlite> SELECT MAX(Price) FROM Product;
+6750
+sqlite> 
