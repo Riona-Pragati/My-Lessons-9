@@ -1,0 +1,29 @@
+Last login: Thu Apr  2 19:42:56 on ttys000
+anantha-6459@anantha-6459 ~ % sqlite3
+SQLite version 3.51.0 2025-06-12 13:14:41
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .open Student.db
+sqlite> CREATE TABLE Student(Roll_No INTEGER, Name TEXT,Address TEXT, Age INTEGER);
+sqlite> INSERT INTO Student VALUES(1, 'Ram', 'Delhi', 18);
+sqlite> INSERT INTO Student VALUES(2, 'Ramesh', 'Gurgaon', 18);
+sqlite> INSERT INTO Student VALUES(3, 'Sujit', 'Rohtak', 18);
+sqlite> INSERT INTO Student VALUES(4, 'Suresh', 'Gurgaon', 18);
+sqlite> INSERT INTO Student VALUES(5, 'Riona', Delhi, 17);
+Parse error: no such column: Delhi
+  INSERT INTO Student VALUES(5, 'Riona', Delhi, 17);
+                           error here ---^
+sqlite> INSERT INTO Student VALUES(5, 'Riona', 'Delhi', 17);
+sqlite> INSERT INTO Student VALUES(6, 'Rini', 'Delhi', 19);
+sqlite> SELECT * FROM Student WHERE Age=17 AND ADDRESS='Delhi';
+5|Riona|Delhi|17
+sqlite> SELECT * FROM Student WHERE Age=17 OR Address='Delhi');
+Parse error: near ")": syntax error
+  ECT * FROM Student WHERE Age=17 OR Address='Delhi');
+                                      error here ---^
+sqlite> SELECT * FROM Student WHERE Age=17 OR Address='Delhi';
+1|Ram|Delhi|18
+5|Riona|Delhi|17
+6|Rini|Delhi|19
+sqlite> 
